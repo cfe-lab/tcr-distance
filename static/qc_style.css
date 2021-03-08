@@ -1,0 +1,201 @@
+body {
+    font-style: normal;
+    font-variant: normal;
+
+    /*auto colours*/
+    color: #222;
+    background-color: #eee;
+
+    margin: 0;
+}
+
+input {
+    -webkit-appearance: none;
+    background: #fff;
+
+    border: 2px solid #ccc;
+    border-radius: 4px;	 
+}
+
+input[type=submit]:active {
+    background: #ccc;
+
+    border: 2px solid #ccc;
+    border-radius: 4px;	 
+}
+
+textarea {
+    resize: vertical;
+    border: 2px solid #ccc;
+    border-radius: 4px;	
+
+    -webkit-appearance: none;
+}
+
+#header {
+    width: 100%;
+    height: 3.25em;  /*A*/
+
+    display: block;
+}
+
+#title {
+    position: absolute;
+
+    left: calc( (100% - 8.25em) / 2 );  /*B*/
+    right: calc( (100% - 8em) / 2 );  /*B*/
+
+    width: 8em;  /*B*/
+
+    margin: 0.25em 0 0.25em 0;   
+    padding: 0.25em;
+	
+    background-color: #bfb;
+    border-radius: 16px;
+
+    box-shadow: 0 0 0.5px 0.5px #bfb;
+
+    z-index: 1000;
+
+    margin-top: calc( -1.43em );  /* Magic number */
+
+    text-align: center;
+}
+
+#title-2 {
+    position: absolute;
+
+    left: calc( (100% - 8.25em) / 2 );  /*B*/
+    right: calc( (100% - 8em) / 2 );  /*B*/
+
+    width: 8em;  /*B*/
+
+    margin: 0.25em 0 0.25em 0;   
+    padding: 0.25em;
+	
+    background-color: #bbf;
+    border-radius: 16px;
+
+    box-shadow: 0 0 0.5px 0.5px #bbf;
+
+    z-index: 1000;
+
+    margin-top: calc( -1.43em );  /* Magic number */
+
+    text-align: center;
+}
+
+#line {
+    margin: 0;
+    margin-top: 0.725em;  /* Sort of a magic number */
+
+    height: 1.8em;
+
+    background-color: #8df;
+	
+    z-index: -1000;
+
+    display: block;
+}
+
+#content {
+    width: 100%;
+    /* height: calc(100% - 3.25em);  /* Sort of a magic number */
+
+}
+
+#mainForm {
+    margin: 0 1em 0 1em;
+}
+
+.formitem {
+    margin: 0.5em 0 0.5em 0
+}
+
+#fastaInputArea {
+    width: 100%;  height: 12em;
+}
+
+#procedureBox {
+    display: inline-block;  
+    height: auto;
+
+    margin-top: 0;	
+    padding: 0.6em 1em 0.6em 1em;
+
+    border-radius: 1em;
+		
+    background-color: #ccc;
+}
+
+#terminateBtn {
+    width: 15%;  height: 3em;
+    /*margin-left: 2%;*/
+}
+
+#formSubmit {
+    width: 60%;  height: 4em;
+    margin-left: 20%;
+}
+
+/* f stands for faded */
+f {
+    color: #888;
+    font-size: 0.8em;	
+}
+
+/* This is the styled checkbox class */
+.customCheckbox {
+    width: 1.5em;  height: 1.5em;
+
+    transform: translateY(4px);
+    margin-right: 0;	
+    -webkit-appearance: checkbox !important;  /* Safari? */
+    -moz-appearance: checkbox !important;  /* Firefox */
+    -ms-appearance: checkbox !important;  /* Internet Explorer/Edge */
+    -o-appearance: checkbox !important;
+    appearance: checkbox !important;  /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.customRadioButton {
+    width: 1em;  height: 1em;
+
+    /*transform: translateY(4px);*/
+    /*margin-right: 0;*/	
+    -webkit-appearance: radio !important;  /* Safari? */
+    -moz-appearance: radio !important;  /* Firefox */
+    -ms-appearance: radio !important;  /* Internet Explorer/Edge */
+    -o-appearance: radio !important;
+    appearance: radio !important;  /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+/* Centered on the x and y axis */
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Centered on the x axis */
+.centeredhorizontal {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+/* Text doesn't wrap */
+.nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Text cannot be selected */
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}

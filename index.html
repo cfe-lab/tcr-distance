@@ -1,0 +1,79 @@
+{% extends "tool_base.html" %}
+{% load static %}
+
+{% block head %}
+<head>
+        <link rel="stylesheet" href="{% static "qc_style.css" %}">
+	<title>TCR Distance</title>
+</head>
+{% endblock %}
+
+{% block content %}
+        <div id="header">
+            <div id="line"></div>
+            <h2 id="title-2">TCR Distance</h2>
+        </div>
+
+        <div id="content">
+    		<form enctype="multipart/form-data" id="mainForm" name="mainForm" method="post" action="results/">
+		{% csrf_token %}
+		
+                	<p class="formitem">This tool converts certain cellranger output csv files into a distance matrix file using <a href="https://github.com/phbradley/tcr-dist">tcr-dist</a> which is compatible with the distance matrix visualizer. Additionally, clones files can be directly uploaded as long as they contain all of the following fields -> [cdr3a, cdr3b, va_genes, vb_genes, epitope, subject, clone_id]</p>
+        		<p class="formitem">To use this tool, please upload the two files below which cellranger outputs, or a clones file, both in the <b>tsv</b> format.<br>You can configure how you recieve data, or if your file is forwarded to the visualizer in the <em>Output Options</em> section.</p>
+			<p>The max individual filesize is 50MB, if this is too small for you please contact the server administrator and it can likely be increased.</p>
+
+				<div id="procedureBox" class="formitem" style="float: left; margin: 4px;">
+					<h3 class="formitem">Input Options:</h3>
+
+					<label for="filef">Upload Filtered Contig Annotations : </label> <br>
+					<input class="formitem" name="filef" type="file" style="width: 18em;">  <!-- Uploads filtered contig annotatinos -->
+    			    		<br>
+					<label for="filec">Upload Consensus Annotations : </label> <br>
+					<input class="formitem" name="filec" type="file" style="width: 18em;">  <!-- Uploads clonotype consensus annotations -->
+					<p>&nbsp;&nbsp;<em>or</em></p>
+					<label for="filef">Upload Clones File : </label> <br>
+					<input class="formitem" name="filecf" type="file" style="width: 18em;">  <!-- Uploads clones_file directly -->
+					<p syle="text-align: center;">-----------------------------------</p>	
+					<div class="formitem">
+						<input class="customRadioButton" type="radio" name="organism" value="human"/> Human
+						<input class="customRadioButton" type="radio" name="organism" value="mouse"/> Mouse		
+					</div>
+				</div>
+				
+				<!-- All of the checkboxes go here -->
+				<div id="procedureBox" class="formitem" style="float: left; margin: 4px;">
+					<h3 class="formitem">Output Options:</h3>
+					<h4 class="formitem">After generating distance matrix:</h4>
+					<div class="formitem">
+    			    			<input class="customCheckbox" type="checkbox" name="sendEmail" value="sendEmail" checked="checked">
+						<label for="sendEmail">: Send email to </label>
+    			    			<input type="text" name="emailAddress" id="emailAddress" placeholder="person@email.com" style="width: 12em;">
+						<p>If filesize is too large (~18MB), defaults to downloading file.</p>
+						
+						<input class="customCheckbox" type="checkbox" name="download" value="download" checked="checked">
+						<label for="download">: Download file</label>
+						<br>
+
+						<input class="customCheckbox" type="checkbox" name="visualizer" value="visualizer" disabled>
+						<label for="visualizer">: Forward file to visualizer</label>
+						<br>
+					</div>
+				</div>	
+
+               		<div class="formitem" style="float: left; width: 100%;">
+    		    		<input id="formSubmit" type="submit" name="submitBtn" value="Calculate">
+    		    		<input id="terminateBtn" type="button" name="terminateBtn" value="Terminate Search">
+    			</div>
+
+    		</form>
+
+		<div id="results" style="margin-left: 1em; float: left; width: 90%;"></div>
+
+                <p style="float: left; width: 100%;">------------------------------------------- </p>
+		<div id="info" style="white-space:pre-line; margin-left: 1em; float: left; width: 90%;">
+
+		</div>
+        </div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="{% static "tcr_dist.js" %}?v0.7"></script>		
+{% endblock %}
